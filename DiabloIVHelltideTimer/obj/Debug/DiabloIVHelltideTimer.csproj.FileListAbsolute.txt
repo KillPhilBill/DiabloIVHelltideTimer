@@ -1,0 +1,11 @@
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\bin\Debug\DiabloIVHelltideTimer.exe.config
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\bin\Debug\DiabloIVHelltideTimer.exe
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\bin\Debug\DiabloIVHelltideTimer.pdb
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.csproj.AssemblyReference.cache
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.csproj.SuggestedBindingRedirects.cache
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.Properties.Resources.resources
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.csproj.GenerateResource.cache
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.csproj.CoreCompileInputs.cache
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.exe
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.pdb
+C:\Users\kdriv\source\repos\DiabloIVHelltideTimer\DiabloIVHelltideTimer\obj\Debug\DiabloIVHelltideTimer.Form1.resources
