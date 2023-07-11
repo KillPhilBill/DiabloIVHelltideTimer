@@ -12,12 +12,15 @@ namespace DiabloIVHelltideTimer
 {
     public partial class Form1 : Form
     {
+        static readonly System.DateTime HELLTIDEINITIALDATETIME = new System.DateTime(2023, 7, 10, 21, 0, 0);
         int helltideSecondTimer = 4500;
         bool helltideEventRunning = false;
         public Form1()
         {
             InitializeComponent();
             tmrClock.Start();
+            Console.WriteLine(HELLTIDEINITIALDATETIME.ToString());
+            timeCatchUp();
         }
 
         private void currentTime_Tick(object sender, EventArgs e)
@@ -37,6 +40,14 @@ namespace DiabloIVHelltideTimer
 
             return helltideFormattedTime;
 
+        }
+
+        private void timeCatchUp()
+        {
+            string InitialTime = HELLTIDEINITIALDATETIME.ToString();
+            string currentTime = DateTime.Now.ToString();
+            int timeCompare = currentTime.CompareTo(InitialTime);
+            Console.WriteLine(timeCompare.ToString());
         }
 
     }
