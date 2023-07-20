@@ -57,7 +57,7 @@ namespace DiabloIVHelltideTimer
             else if(remainMilSecVal <= 4500)
             {
                 helltideEventRunning = false;
-                helltideSecondTimer = 4502 - remainMilSecVal;
+                helltideSecondTimer = 4498 - remainMilSecVal;
             }
         }
 
