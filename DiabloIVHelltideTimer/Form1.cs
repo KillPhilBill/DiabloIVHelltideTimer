@@ -12,7 +12,7 @@ namespace DiabloIVHelltideTimer
 {
     public partial class Form1 : Form
     {
-        static readonly System.DateTime HELLTIDEINITIALDATETIME = new System.DateTime(2023, 7, 10, 21, 0, 0);
+        static readonly System.DateTime HELLTIDEINITIALDATETIME = new System.DateTime(2023, 7, 19, 22, 0, 0);
         int helltideSecondTimer = 4500;
         bool helltideEventRunning = false;
         public Form1()
@@ -44,11 +44,24 @@ namespace DiabloIVHelltideTimer
 
         private void timeCatchUp()
         {
-            string InitialTime = HELLTIDEINITIALDATETIME.ToString();
-            string currentTime = DateTime.Now.ToString();
-            int timeCompare = currentTime.CompareTo(InitialTime);
-            Console.WriteLine(timeCompare.ToString());
+            DateTime curDate = DateTime.Now;
+            TimeSpan deltaInitDateCurDate = curDate - HELLTIDEINITIALDATETIME;
+            int roundDeltaInitDateCurDate = Convert.ToInt32(deltaInitDateCurDate.TotalSeconds);
+            int remainMilSecVal = roundDeltaInitDateCurDate % 8100;
+            Console.WriteLine(remainMilSecVal);
+            if (remainMilSecVal > 4500)
+            {
+                helltideEventRunning = true;
+                helltideSecondTimer = 8098 - remainMilSecVal;
+            }
+            else if(remainMilSecVal <= 4500)
+            {
+                helltideEventRunning = false;
+                helltideSecondTimer = 4502 - remainMilSecVal;
+            }
         }
+
+        
 
     }
 }
