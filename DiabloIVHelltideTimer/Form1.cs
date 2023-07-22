@@ -1,34 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DiabloIVHelltideTimer
 {
     public partial class Form1 : Form
     {
-        static readonly System.DateTime HELLTIDEINITIALDATETIME = new System.DateTime(2023, 7, 19, 22, 0, 0);
-        int helltideSecondTimer = 4500;
-        bool helltideEventRunning = false;
+        static readonly DateTime HELLTIDEINITIALDATETIME = new DateTime(2023, 7, 19, 22, 0, 0);
+        static readonly int HELLTIDEACTIVETIMER = 3600; // Helltide active for 1 hour
+        static readonly int HELLTIDEBREAKTIMER = 4500; // Helltide break time for 1 hour 15 minutes
+        int helltideSecondTimer = 0; 
+        bool helltideEventRunning = false; 
         public Form1()
         {
             InitializeComponent();
             tmrClock.Start();
-            Console.WriteLine(HELLTIDEINITIALDATETIME.ToString());
             timeCatchUp();
         }
-
+       
         private void currentTime_Tick(object sender, EventArgs e)
         {
             lblCurrentTimeDisplay.Text = DateTime.Now.ToLongTimeString();
             lblCountdownDisplay.Text = timeFormat(helltideSecondTimer);
-            helltideSecondTimer--;
             
+            helltideSecondTimer--;
+            if (helltideSecondTimer < 0)
+            {
+                if (helltideEventRunning)
+                {
+                    helltideEventRunning = false;
+                    helltideSecondTimer = HELLTIDEBREAKTIMER;
+                }
+                else { helltideEventRunning = true; helltideSecondTimer = HELLTIDEACTIVETIMER; }
+            }
         }
 
         private string timeFormat(int helltideSecVar)
@@ -47,17 +50,19 @@ namespace DiabloIVHelltideTimer
             DateTime curDate = DateTime.Now;
             TimeSpan deltaInitDateCurDate = curDate - HELLTIDEINITIALDATETIME;
             int roundDeltaInitDateCurDate = Convert.ToInt32(deltaInitDateCurDate.TotalSeconds);
-            int remainMilSecVal = roundDeltaInitDateCurDate % 8100;
+            int remainMilSecVal = roundDeltaInitDateCurDate % (HELLTIDEBREAKTIMER + HELLTIDEACTIVETIMER);
             Console.WriteLine(remainMilSecVal);
-            if (remainMilSecVal > 4500)
+            if (remainMilSecVal > HELLTIDEBREAKTIMER)
             {
                 helltideEventRunning = true;
-                helltideSecondTimer = 8098 - remainMilSecVal;
+                helltideSecondTimer = (HELLTIDEBREAKTIMER + HELLTIDEACTIVETIMER - 2) - remainMilSecVal;
+                
             }
-            else if(remainMilSecVal <= 4500)
+            else 
             {
                 helltideEventRunning = false;
-                helltideSecondTimer = 4498 - remainMilSecVal;
+                helltideSecondTimer = (HELLTIDEBREAKTIMER - 2) - remainMilSecVal;
+                
             }
         }
 
