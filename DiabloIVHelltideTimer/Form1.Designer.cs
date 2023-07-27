@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.lblLastHelltideMsg = new System.Windows.Forms.Label();
+            this.lblHelltideStatus = new System.Windows.Forms.Label();
             this.lblHelltideStatusMsg = new System.Windows.Forms.Label();
             this.tmrClock = new System.Windows.Forms.Timer(this.components);
             this.lblCountdownDisplay = new System.Windows.Forms.Label();
-            this.lblLastHelltideDisplay = new System.Windows.Forms.Label();
+            this.lblHelltideStatusDisplay = new System.Windows.Forms.Label();
             this.lblCurrentTimeMsg = new System.Windows.Forms.Label();
             this.lblCurrentTimeDisplay = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblLastHelltideMsg
+            // lblHelltideStatus
             // 
-            this.lblLastHelltideMsg.AutoSize = true;
-            this.lblLastHelltideMsg.Location = new System.Drawing.Point(67, 75);
-            this.lblLastHelltideMsg.Name = "lblLastHelltideMsg";
-            this.lblLastHelltideMsg.Size = new System.Drawing.Size(116, 13);
-            this.lblLastHelltideMsg.TabIndex = 0;
-            this.lblLastHelltideMsg.Text = "Last Helltide Start Time";
+            this.lblHelltideStatus.AutoSize = true;
+            this.lblHelltideStatus.Location = new System.Drawing.Point(67, 75);
+            this.lblHelltideStatus.Name = "lblHelltideStatus";
+            this.lblHelltideStatus.Size = new System.Drawing.Size(75, 13);
+            this.lblHelltideStatus.TabIndex = 0;
+            this.lblHelltideStatus.Text = "Helltide Status";
             // 
             // lblHelltideStatusMsg
             // 
@@ -71,14 +71,15 @@
             this.lblCountdownDisplay.TabIndex = 2;
             this.lblCountdownDisplay.Text = "1:15:00";
             // 
-            // lblLastHelltideDisplay
+            // lblHelltideStatusDisplay
             // 
-            this.lblLastHelltideDisplay.AutoSize = true;
-            this.lblLastHelltideDisplay.Location = new System.Drawing.Point(260, 75);
-            this.lblLastHelltideDisplay.Name = "lblLastHelltideDisplay";
-            this.lblLastHelltideDisplay.Size = new System.Drawing.Size(49, 13);
-            this.lblLastHelltideDisplay.TabIndex = 3;
-            this.lblLastHelltideDisplay.Text = "00:00:00";
+            this.lblHelltideStatusDisplay.AutoSize = true;
+            this.lblHelltideStatusDisplay.Location = new System.Drawing.Point(263, 75);
+            this.lblHelltideStatusDisplay.Name = "lblHelltideStatusDisplay";
+            this.lblHelltideStatusDisplay.Size = new System.Drawing.Size(37, 13);
+            this.lblHelltideStatusDisplay.TabIndex = 3;
+            this.lblHelltideStatusDisplay.Text = "Active";
+            this.lblHelltideStatusDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCurrentTimeMsg
             // 
@@ -105,10 +106,10 @@
             this.ClientSize = new System.Drawing.Size(726, 369);
             this.Controls.Add(this.lblCurrentTimeDisplay);
             this.Controls.Add(this.lblCurrentTimeMsg);
-            this.Controls.Add(this.lblLastHelltideDisplay);
+            this.Controls.Add(this.lblHelltideStatusDisplay);
             this.Controls.Add(this.lblCountdownDisplay);
             this.Controls.Add(this.lblHelltideStatusMsg);
-            this.Controls.Add(this.lblLastHelltideMsg);
+            this.Controls.Add(this.lblHelltideStatus);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -120,11 +121,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblLastHelltideMsg;
+        private System.Windows.Forms.Label lblHelltideStatus;
         private System.Windows.Forms.Label lblHelltideStatusMsg;
         private System.Windows.Forms.Timer tmrClock;
         private System.Windows.Forms.Label lblCountdownDisplay;
-        private System.Windows.Forms.Label lblLastHelltideDisplay;
+        private System.Windows.Forms.Label lblHelltideStatusDisplay;
         private System.Windows.Forms.Label lblCurrentTimeMsg;
         private System.Windows.Forms.Label lblCurrentTimeDisplay;
     }

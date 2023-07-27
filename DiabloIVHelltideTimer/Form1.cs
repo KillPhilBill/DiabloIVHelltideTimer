@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using System;
 using System.Windows.Forms;
 
 namespace DiabloIVHelltideTimer
@@ -25,12 +26,8 @@ namespace DiabloIVHelltideTimer
             helltideSecondTimer--;
             if (helltideSecondTimer < 0)
             {
-                if (helltideEventRunning)
-                {
-                    helltideEventRunning = false;
-                    helltideSecondTimer = HELLTIDEBREAKTIMER;
-                }
-                else { helltideEventRunning = true; helltideSecondTimer = HELLTIDEACTIVETIMER; }
+                helltideUpdate();
+                
             }
         }
 
@@ -62,11 +59,43 @@ namespace DiabloIVHelltideTimer
             {
                 helltideEventRunning = false;
                 helltideSecondTimer = (HELLTIDEBREAKTIMER - 2) - remainMilSecVal;
+
                 
             }
+            helltideStatusChange();
         }
 
-        
+        private void helltideUpdate()
+        {
+            helltideEventRunning = !helltideEventRunning; //Toggle bool 
+            helltideSecondTimer = helltideEventRunning ? HELLTIDEACTIVETIMER : HELLTIDEBREAKTIMER; // Ternary operator to change timer based on bool value
+            if (helltideEventRunning)
+            {
+                new ToastContentBuilder()
+                    .AddArgument("conversationId", 100)
+                    .AddText("Diablo IV Notification")
+                    .AddText("Helltide Starts Now")
+                    .Show();
+
+                helltideSecondTimer = HELLTIDEACTIVETIMER;
+            }
+            else
+            {
+                new ToastContentBuilder()
+                    .AddArgument("conversationId", 115)
+                    .AddText("Diablo IV Notification")
+                    .AddText("Helltide Has Ended")
+                    .Show();
+
+                helltideSecondTimer = HELLTIDEBREAKTIMER;
+            }
+            helltideStatusChange();
+        }
+
+        private void helltideStatusChange()
+        {
+            lblHelltideStatusDisplay.Text = helltideEventRunning ? "Active" : "Inactive";
+        }
 
     }
 }
